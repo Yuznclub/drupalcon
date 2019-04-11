@@ -1,11 +1,13 @@
-version: '3'
+version: '3' #版本号根据实际需要修改，有可能需要改成2
 
 services:
-  docker_docker_ai:
-    container_name: docker_docker_ai
+  docker:
+    container_name: ai # 项目名? 
     build:
       context: .
       dockerfile: ./.docker/Dockerfile
+    environment:
+      XDEBUG_CONFIG: remote_host=172.17.0.1   # docker 17.12之后macos 改成docker.for.mac.host.internal   
     ports:
       - 8081:80
     volumes:
